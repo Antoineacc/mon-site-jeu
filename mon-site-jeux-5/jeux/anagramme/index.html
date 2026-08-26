@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anagramme du jour — FR / EN / ES</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../game-common.css">
+<link rel="stylesheet" href="anagramme.css">
+</head>
+<body>
+
+<div class="layout">
+  <aside class="ad-slot ad-left" aria-label="Emplacement publicitaire gauche">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+
+  <main class="page">
+    <a class="back-link" href="../../index.html">← Retour à l'accueil</a>
+
+    <header class="game-header">
+      <p class="eyebrow">🔤 Trois langues, trois mots</p>
+      <h1>Anagramme du jour</h1>
+      <p class="tagline" id="day-label">Grille du jour</p>
+      <p class="instructions">Remets les lettres dans l'ordre pour retrouver le mot du jour, dans chacune des trois langues.</p>
+    </header>
+
+    <div class="lang-tabs">
+      <button class="lang-tab lang-tab--active" data-lang="fr">🇫🇷 Français</button>
+      <button class="lang-tab" data-lang="en">🇬🇧 English</button>
+      <button class="lang-tab" data-lang="es">🇪🇸 Español</button>
+    </div>
+
+    <div id="panel-fr" class="lang-panel"></div>
+    <div id="panel-en" class="lang-panel" style="display:none;"></div>
+    <div id="panel-es" class="lang-panel" style="display:none;"></div>
+  </main>
+
+  <aside class="ad-slot ad-right" aria-label="Emplacement publicitaire droit">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+</div>
+
+<script src="../../shared.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

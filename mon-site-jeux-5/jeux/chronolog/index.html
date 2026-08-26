@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronolog — Le défi du jour</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="chronolog.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="ad-slot ad-left" aria-label="Emplacement publicitaire gauche">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+
+  <main class="page chronolog-page">
+    <a class="back-link" href="../../index.html">← Retour à l'accueil</a>
+
+    <header class="chrono-header">
+      <p class="eyebrow" id="theme-label">Thème</p>
+      <h1>Chronolog</h1>
+      <p class="tagline" id="day-label">Grille du jour</p>
+      <p id="difficulty-badge" class="difficulty-badge"></p>
+      <p class="instructions">Classez les 6 éléments du <strong>plus ancien</strong> (1) au <strong>plus récent</strong> (6) avec les flèches, puis validez.</p>
+    </header>
+
+    <ol id="sortable-list" class="sortable-list"></ol>
+
+    <button id="check-btn" class="play-btn check-btn">Valider mon classement</button>
+
+    <div id="history-board" class="history-board"></div>
+
+    <div id="result" class="result"></div>
+  </main>
+
+  <aside class="ad-slot ad-right" aria-label="Emplacement publicitaire droit">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

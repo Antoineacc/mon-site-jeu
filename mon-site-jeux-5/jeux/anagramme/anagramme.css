@@ -1,0 +1,48 @@
+.lang-tabs{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  max-width:520px;
+  margin:24px auto 0;
+  padding:0 16px;
+}
+.lang-tab{
+  flex:1;
+  padding:10px 8px;
+  border-radius:8px;
+  border:1px solid rgba(241,233,210,0.2);
+  background:transparent;
+  color:var(--text-dim);
+  font-family:var(--mono);
+  font-size:13px;
+  cursor:pointer;
+}
+.lang-tab--active{
+  background:var(--gold);
+  color:var(--ink);
+  border-color:var(--gold);
+  font-weight:bold;
+}
+
+.lang-panel{
+  max-width:480px;
+  margin:24px auto 0;
+  padding:0 16px;
+  text-align:center;
+}
+
+.scrambled-letters{
+  font-family:var(--mono);
+  font-size:32px;
+  letter-spacing:6px;
+  margin:16px 0;
+  color:var(--gold);
+  word-break:break-word;
+}
+
+.clue-text{
+  color:var(--text-dim);
+  font-size:14px;
+  min-height:18px;
+  margin:0 0 12px;
+}

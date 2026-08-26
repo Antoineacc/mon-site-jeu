@@ -1,0 +1,133 @@
+.back-link{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--text-dim);
+  text-decoration:none;
+  margin:24px 0 0 16px;
+}
+
+.game-header{
+  text-align:center;
+  padding:24px 16px 16px;
+}
+.game-header h1{
+  font-size:40px;
+  margin:0 0 8px;
+}
+.instructions{
+  color:var(--text-dim);
+  font-size:14px;
+  max-width:460px;
+  margin:16px auto 0;
+}
+
+.guess-form{
+  display:flex;
+  gap:10px;
+  max-width:480px;
+  margin:24px auto 0;
+  padding:0 16px;
+}
+.guess-form input[type="text"],
+.guess-form input[type="number"],
+.guess-form select{
+  flex:1;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid rgba(241,233,210,0.2);
+  background:var(--ink-soft);
+  color:var(--text-light);
+  font-family:var(--serif);
+  font-size:16px;
+}
+.guess-form button{
+  border:none;
+  cursor:pointer;
+  background:var(--gold);
+  color:var(--ink);
+  font-weight:bold;
+  padding:0 20px;
+  border-radius:8px;
+  font-family:var(--mono);
+}
+
+.attempts-board{
+  max-width:480px;
+  margin:24px auto 0;
+  padding:0 16px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.attempt-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:var(--ink-soft);
+  border:1px solid rgba(241,233,210,0.08);
+  border-radius:8px;
+  padding:10px 14px;
+  font-size:14px;
+}
+.attempt-guess{
+  flex:1;
+}
+.attempt-feedback{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--coral);
+  font-weight:bold;
+  white-space:nowrap;
+}
+.attempt-feedback--ok{
+  color:var(--green);
+}
+
+.clue-list{
+  max-width:480px;
+  margin:20px auto 0;
+  padding:0 16px;
+  list-style:none;
+}
+.clue-list li{
+  background:var(--ink-soft);
+  border-left:3px solid var(--gold);
+  border-radius:6px;
+  padding:10px 14px;
+  margin-bottom:8px;
+  font-size:14px;
+  color:var(--text-light);
+}
+
+.result{
+  text-align:center;
+  padding:24px 16px 48px;
+}
+.score-line{
+  font-size:20px;
+  margin:0 0 8px;
+}
+.emoji-grid{
+  font-size:24px;
+  letter-spacing:4px;
+  margin:0 0 20px;
+}
+.share-btn{
+  border:none;
+  cursor:pointer;
+  background:var(--gold);
+  color:var(--ink);
+  font-weight:bold;
+  padding:10px 18px;
+  border-radius:6px;
+  font-family:var(--mono);
+  font-size:14px;
+}
+.reveal-answer{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--text-dim);
+  margin-top:8px;
+}

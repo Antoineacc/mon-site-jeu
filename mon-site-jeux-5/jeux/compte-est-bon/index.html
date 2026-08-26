@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le compte est bon — Le défi du jour</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../game-common.css">
+<link rel="stylesheet" href="compte.css">
+</head>
+<body>
+
+<div class="layout">
+  <aside class="ad-slot ad-left" aria-label="Emplacement publicitaire gauche">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+
+  <main class="page">
+    <a class="back-link" href="../../index.html">← Retour à l'accueil</a>
+
+    <header class="game-header">
+      <p class="eyebrow">🔢 Calcul mental</p>
+      <h1>Le compte est bon</h1>
+      <p class="tagline" id="day-label">Grille du jour</p>
+      <p class="instructions">Combine les 6 nombres avec + − × ÷ pour atteindre la cible exactement. Clique un nombre, un opérateur, puis un second nombre.</p>
+    </header>
+
+    <p class="target-display">🎯 Cible : <strong id="target-value"></strong></p>
+
+    <div id="number-tiles" class="number-tiles"></div>
+
+    <div id="operator-row" class="operator-row"></div>
+
+    <div class="action-row">
+      <button id="undo-btn" class="secondary-btn">↩︎ Annuler la sélection</button>
+      <button id="reset-btn" class="secondary-btn">🔁 Recommencer</button>
+    </div>
+
+    <p id="op-error" class="op-error"></p>
+
+    <div id="history-log" class="history-log"></div>
+
+    <div id="result" class="result"></div>
+  </main>
+
+  <aside class="ad-slot ad-right" aria-label="Emplacement publicitaire droit">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+</div>
+
+<script src="../../shared.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

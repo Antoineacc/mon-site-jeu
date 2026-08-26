@@ -1,0 +1,123 @@
+.target-display{
+  text-align:center;
+  font-size:22px;
+  margin:20px 0 0;
+}
+.target-display strong{
+  color:var(--gold);
+  font-size:32px;
+}
+
+.number-tiles{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  max-width:520px;
+  margin:24px auto 0;
+  padding:0 16px;
+}
+.number-tile{
+  min-width:64px;
+  padding:16px 10px;
+  border-radius:8px;
+  border:1px solid rgba(241,233,210,0.2);
+  background:var(--ink-soft);
+  color:var(--text-light);
+  font-family:var(--mono);
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:transform 0.12s ease, background 0.12s ease;
+}
+.number-tile:hover:not(:disabled){
+  transform:translateY(-2px);
+  border-color:var(--gold);
+}
+.number-tile--selected{
+  background:var(--gold);
+  color:var(--ink);
+  border-color:var(--gold);
+}
+.number-tile:disabled{
+  opacity:0.25;
+  cursor:default;
+}
+.number-tile--computed{
+  border-style:dashed;
+  border-color:var(--green);
+}
+
+.operator-row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:20px auto 0;
+}
+.operator-btn{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(241,233,210,0.2);
+  background:transparent;
+  color:var(--text-light);
+  font-size:22px;
+  cursor:pointer;
+}
+.operator-btn:hover:not(:disabled){
+  border-color:var(--gold);
+}
+.operator-btn--selected{
+  background:var(--gold);
+  color:var(--ink);
+  border-color:var(--gold);
+}
+.operator-btn:disabled{
+  opacity:0.25;
+  cursor:default;
+}
+
+.action-row{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:20px 0 0;
+}
+.secondary-btn{
+  border:1px solid rgba(241,233,210,0.25);
+  background:transparent;
+  color:var(--text-dim);
+  padding:8px 14px;
+  border-radius:6px;
+  font-family:var(--mono);
+  font-size:13px;
+  cursor:pointer;
+}
+.secondary-btn:hover{
+  border-color:var(--gold);
+  color:var(--text-light);
+}
+
+.op-error{
+  text-align:center;
+  color:var(--coral);
+  font-family:var(--mono);
+  font-size:13px;
+  min-height:18px;
+  margin:12px 0 0;
+}
+
+.history-log{
+  max-width:420px;
+  margin:16px auto 0;
+  padding:0 16px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.history-log div{
+  font-family:var(--mono);
+  font-size:14px;
+  color:var(--text-dim);
+  text-align:center;
+}

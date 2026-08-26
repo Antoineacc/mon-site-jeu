@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le point commun — Le défi du jour</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../game-common.css">
+<link rel="stylesheet" href="point-commun.css">
+</head>
+<body>
+
+<div class="layout">
+  <aside class="ad-slot ad-left" aria-label="Emplacement publicitaire gauche">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+
+  <main class="page">
+    <a class="back-link" href="../../index.html">← Retour à l'accueil</a>
+
+    <header class="game-header">
+      <p class="eyebrow">🧩 Trouve les 4 groupes</p>
+      <h1>Le point commun</h1>
+      <p class="tagline" id="day-label">Grille du jour</p>
+      <p class="instructions">Sélectionne 4 mots qui partagent un point commun, puis valide. Trouve les 4 groupes cachés parmi les 16 mots.</p>
+      <p id="error-counter" class="error-counter"></p>
+    </header>
+
+    <div id="solved-groups" class="solved-groups"></div>
+
+    <div id="word-grid" class="word-grid"></div>
+
+    <button id="validate-btn" class="play-btn validate-btn">Valider le groupe</button>
+
+    <div id="result" class="result"></div>
+  </main>
+
+  <aside class="ad-slot ad-right" aria-label="Emplacement publicitaire droit">
+    <span>Emplacement pub<br>160×600</span>
+  </aside>
+</div>
+
+<script src="../../shared.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
