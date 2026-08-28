@@ -53,6 +53,44 @@ a{color:inherit;}
   .ad-slot{display:none;}
 }
 
+.quote-slot{
+  flex:0 0 220px;
+  border:none;
+  min-height:0;
+  display:block;
+  text-align:left;
+  padding:32px 18px;
+}
+.quote-mark{
+  font-family:var(--serif);
+  font-size:40px;
+  color:var(--gold);
+  line-height:1;
+  margin:0 0 8px;
+  opacity:0.6;
+}
+.quote-label{
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  margin:0 0 14px;
+}
+.quote-text{
+  font-family:var(--serif);
+  font-size:16px;
+  line-height:1.6;
+  font-style:italic;
+  color:var(--text-light);
+  margin:0 0 10px;
+}
+.quote-author{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-dim);
+}
+
 .page{
   flex:1 1 auto;
   max-width:720px;

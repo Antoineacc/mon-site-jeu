@@ -11,8 +11,11 @@
 <body>
 
 <div class="layout">
-  <aside class="ad-slot ad-left" aria-label="Emplacement publicitaire gauche">
-    <span>Emplacement pub<br>160×600</span>
+  <aside class="ad-slot quote-slot ad-left" aria-label="Citation du jour">
+    <p class="quote-mark">"</p>
+    <p class="quote-label">Citation du jour</p>
+    <p id="quote-left-text" class="quote-text">Chargement...</p>
+    <p id="quote-left-author" class="quote-author"></p>
   </aside>
 
   <main class="page">
@@ -36,13 +39,17 @@
     <div id="panel-es" class="lang-panel" style="display:none;"></div>
   </main>
 
-  <aside class="ad-slot ad-right" aria-label="Emplacement publicitaire droit">
-    <span>Emplacement pub<br>160×600</span>
+  <aside class="ad-slot quote-slot ad-right" aria-label="Proverbe du jour">
+    <p class="quote-mark">"</p>
+    <p class="quote-label">Proverbe du jour</p>
+    <p id="quote-right-text" class="quote-text">Chargement...</p>
+    <p id="quote-right-author" class="quote-author"></p>
   </aside>
 </div>
 
 <script src="../../shared.js"></script>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="../../quotes.js"></script>
 </body>
 </html>
