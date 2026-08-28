@@ -3,17 +3,15 @@
   const storageKey = "pointcommun-" + dayIndex;
   const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
 
-  const allWords = puzzle.categories.flatMap((cat) =>
-    cat.words.map((w) => ({ word: w, category: cat.name }))
-  );
+  const allWords = [...puzzle.targetWords, ...puzzle.decoyWords];
 
-  let order = saved ? saved.order : shuffle(allWords.map((w) => w.word));
-  let solvedCategories = saved ? saved.solvedCategories : []; // noms de catégories déjà trouvées
+  let order = saved ? saved.order : shuffle(allWords);
   let errors = saved ? saved.errors : 0;
-  let selected = [];
-  let finished = solvedCategories.length === puzzle.categories.length;
+  let selected = saved ? saved.selected : [];
+  let finished = saved ? saved.finished : false;
 
   const dayLabel = document.getElementById("day-label");
+  const instructionsEl = document.getElementById("puzzle-instructions");
   const errorCounter = document.getElementById("error-counter");
   const solvedBoard = document.getElementById("solved-groups");
   const grid = document.getElementById("word-grid");
@@ -21,6 +19,7 @@
   const result = document.getElementById("result");
 
   dayLabel.textContent = "Grille n°" + dayIndex;
+  instructionsEl.innerHTML = `Parmi ces 16 <strong>${puzzle.category}</strong>, trouve les 4 qui ont un point commun.`;
 
   function shuffle(arr) {
     const a = [...arr];
@@ -32,38 +31,29 @@
   }
 
   function save() {
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify({ order, solvedCategories, errors })
-    );
+    localStorage.setItem(storageKey, JSON.stringify({ order, errors, selected, finished }));
   }
 
-  function categoryOf(word) {
-    return allWords.find((w) => w.word === word).category;
-  }
-  function categoryData(name) {
-    return puzzle.categories.find((c) => c.name === name);
+  function isTarget(word) {
+    return puzzle.targetWords.includes(word);
   }
 
   function render() {
     errorCounter.textContent = errors > 0 ? `${errors} erreur${errors > 1 ? "s" : ""}` : "";
 
-    solvedBoard.innerHTML = solvedCategories
-      .map((name) => {
-        const cat = categoryData(name);
-        return `<div class="solved-group-row" style="background:${cat.color}33; border:1px solid ${cat.color};">
-          <p class="solved-group-name" style="color:${cat.color}">${cat.name}</p>
-          <p class="solved-group-words">${cat.words.join(" · ")}</p>
-        </div>`;
-      })
-      .join("");
+    if (finished) {
+      solvedBoard.innerHTML = `<div class="solved-group-row" style="background:#F1C40F33; border:1px solid #F1C40F;">
+        <p class="solved-group-name" style="color:#F1C40F">Ces 4 ${puzzle.category} ${puzzle.criterion}</p>
+        <p class="solved-group-words">${puzzle.targetWords.join(" · ")}</p>
+      </div>`;
+    } else {
+      solvedBoard.innerHTML = "";
+    }
 
-    const remaining = order.filter((w) => !solvedCategories.includes(categoryOf(w)));
-
-    grid.innerHTML = remaining
+    grid.innerHTML = order
       .map((word) => {
         const cls = selected.includes(word) ? "word-tile word-tile--selected" : "word-tile";
-        return `<button class="${cls}" data-word="${word}">${word}</button>`;
+        return `<button class="${cls}" data-word="${word}" ${finished ? "disabled" : ""}>${word}</button>`;
       })
       .join("");
 
@@ -76,7 +66,7 @@
 
     if (finished) {
       result.innerHTML = `
-        <p class="score-line">Bravo, les 4 groupes sont trouvés ! (${errors} erreur${errors === 1 ? "" : "s"})</p>
+        <p class="score-line">Trouvé ! (${errors} erreur${errors === 1 ? "" : "s"})</p>
         <button id="share-btn" class="share-btn">Copier mon résultat</button>
       `;
       document.getElementById("share-btn").onclick = () => {
@@ -95,33 +85,28 @@
     } else if (selected.length < 4) {
       selected.push(word);
     }
+    save();
     render();
   }
 
   validateBtn.onclick = () => {
     if (selected.length !== 4) return;
-    const cats = selected.map(categoryOf);
-    const allSame = cats.every((c) => c === cats[0]);
+    const allCorrect = selected.every(isTarget);
 
-    if (allSame) {
-      solvedCategories.push(cats[0]);
-      selected = [];
-      if (solvedCategories.length === puzzle.categories.length) finished = true;
+    if (allCorrect) {
+      finished = true;
+      save();
+      render();
     } else {
       errors++;
-      // petite animation de secousse avant de désélectionner
       grid.querySelectorAll(".word-tile--selected").forEach((el) => el.classList.add("word-tile--shake"));
+      save();
       setTimeout(() => {
         selected = [];
         save();
         render();
-      }, 300);
-      save();
-      return;
+      }, 350);
     }
-
-    save();
-    render();
   };
 
   render();

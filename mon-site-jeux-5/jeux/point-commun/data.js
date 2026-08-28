@@ -1,54 +1,56 @@
-// 8 grilles. Chacune : 4 catégories de 4 mots. Les 16 mots sont mélangés à l'affichage.
+// 8 grilles. Chacune donne une catégorie de 16 éléments qui se ressemblent en
+// surface (16 instruments, 16 pays, 16 animaux...), mais seuls 4 partagent un
+// point commun précis annoncé dans la consigne (ex : "sont japonais").
 const CONNECTIONS_DATA = {
   puzzles: [
-    { categories: [
-      { name: "Fruits", color: "#F1C40F", words: ["Pomme", "Banane", "Fraise", "Mangue"] },
-      { name: "Capitales", color: "#3498DB", words: ["Paris", "Tokyo", "Le Caire", "Ottawa"] },
-      { name: "Planètes", color: "#9B59B6", words: ["Mars", "Vénus", "Jupiter", "Saturne"] },
-      { name: "Instruments de musique", color: "#2ECC71", words: ["Guitare", "Piano", "Violon", "Trompette"] },
-    ]},
-    { categories: [
-      { name: "Couleurs", color: "#F1C40F", words: ["Rouge", "Bleu", "Vert", "Jaune"] },
-      { name: "Sports olympiques", color: "#3498DB", words: ["Judo", "Natation", "Escrime", "Aviron"] },
-      { name: "Métaux", color: "#9B59B6", words: ["Or", "Argent", "Fer", "Cuivre"] },
-      { name: "Félins", color: "#2ECC71", words: ["Lion", "Tigre", "Panthère", "Guépard"] },
-    ]},
-    { categories: [
-      { name: "Légumes", color: "#F1C40F", words: ["Carotte", "Poireau", "Courgette", "Aubergine"] },
-      { name: "Genres de films", color: "#3498DB", words: ["Comédie", "Horreur", "Western", "Thriller"] },
-      { name: "Constellations", color: "#9B59B6", words: ["Orion", "Cassiopée", "Lyre", "Scorpion"] },
-      { name: "Boissons chaudes", color: "#2ECC71", words: ["Café", "Thé", "Chocolat chaud", "Infusion"] },
-    ]},
-    { categories: [
-      { name: "Pièces d'échecs", color: "#F1C40F", words: ["Roi", "Reine", "Tour", "Cavalier"] },
-      { name: "Saisons", color: "#3498DB", words: ["Printemps", "Été", "Automne", "Hiver"] },
-      { name: "Instruments de mesure", color: "#9B59B6", words: ["Thermomètre", "Baromètre", "Chronomètre", "Balance"] },
-      { name: "Danses", color: "#2ECC71", words: ["Tango", "Salsa", "Valse", "Rock"] },
-    ]},
-    { categories: [
-      { name: "Éléments naturels", color: "#F1C40F", words: ["Feu", "Eau", "Air", "Terre"] },
-      { name: "Figures géométriques", color: "#3498DB", words: ["Cercle", "Carré", "Triangle", "Losange"] },
-      { name: "Métiers manuels", color: "#9B59B6", words: ["Menuisier", "Plombier", "Électricien", "Maçon"] },
-      { name: "Pays d'Amérique du Sud", color: "#2ECC71", words: ["Brésil", "Chili", "Pérou", "Argentine"] },
-    ]},
-    { categories: [
-      { name: "Notes de musique", color: "#F1C40F", words: ["Do", "Ré", "Mi", "Fa"] },
-      { name: "Fromages français", color: "#3498DB", words: ["Camembert", "Roquefort", "Comté", "Brie"] },
-      { name: "Continents", color: "#9B59B6", words: ["Europe", "Asie", "Afrique", "Océanie"] },
-      { name: "Moyens de transport", color: "#2ECC71", words: ["Train", "Avion", "Bateau", "Vélo"] },
-    ]},
-    { categories: [
-      { name: "Épices", color: "#F1C40F", words: ["Cannelle", "Curcuma", "Poivre", "Paprika"] },
-      { name: "Insectes", color: "#3498DB", words: ["Fourmi", "Abeille", "Papillon", "Libellule"] },
-      { name: "Formes de nuages", color: "#9B59B6", words: ["Cumulus", "Cirrus", "Stratus", "Nimbus"] },
-      { name: "Grands fleuves", color: "#2ECC71", words: ["Nil", "Amazone", "Mississippi", "Danube"] },
-    ]},
-    { categories: [
-      { name: "Desserts français", color: "#F1C40F", words: ["Tarte Tatin", "Crème brûlée", "Éclair", "Macaron"] },
-      { name: "Signes du zodiaque", color: "#3498DB", words: ["Bélier", "Taureau", "Gémeaux", "Cancer"] },
-      { name: "Sports de raquette", color: "#9B59B6", words: ["Tennis", "Badminton", "Squash", "Ping-pong"] },
-      { name: "Chaînes de montagnes", color: "#2ECC71", words: ["Alpes", "Himalaya", "Andes", "Pyrénées"] },
-    ]},
+    {
+      category: "instruments de musique",
+      criterion: "sont d'origine japonaise",
+      targetWords: ["Koto", "Shamisen", "Shakuhachi", "Taiko"],
+      decoyWords: ["Guitare", "Sitar", "Djembé", "Balalaïka", "Didgeridoo", "Cornemuse", "Banjo", "Harpe", "Accordéon", "Ukulélé", "Violon", "Piano"],
+    },
+    {
+      category: "pays",
+      criterion: "ont un roi ou une reine à leur tête",
+      targetWords: ["Espagne", "Belgique", "Suède", "Maroc"],
+      decoyWords: ["France", "Allemagne", "Italie", "Portugal", "Brésil", "Argentine", "Égypte", "Inde", "Grèce", "Turquie", "Pologne", "Mexique"],
+    },
+    {
+      category: "animaux",
+      criterion: "sont des marsupiaux",
+      targetWords: ["Kangourou", "Koala", "Wombat", "Wallaby"],
+      decoyWords: ["Lion", "Éléphant", "Girafe", "Zèbre", "Renard", "Loup", "Ours", "Tigre", "Panda", "Chameau", "Hérisson", "Castor"],
+    },
+    {
+      category: "fleuves",
+      criterion: "coulent en Afrique",
+      targetWords: ["Nil", "Congo", "Niger", "Zambèze"],
+      decoyWords: ["Amazone", "Mississippi", "Danube", "Volga", "Gange", "Yangtsé", "Rhin", "Tamise", "Colorado", "Mékong", "Seine", "Indus"],
+    },
+    {
+      category: "desserts",
+      criterion: "sont d'origine japonaise",
+      targetWords: ["Mochi", "Dorayaki", "Dango", "Taiyaki"],
+      decoyWords: ["Tiramisu", "Crème brûlée", "Baklava", "Churros", "Cheesecake", "Macaron", "Strudel", "Tarte Tatin", "Panna cotta", "Flan", "Brownie", "Cannoli"],
+    },
+    {
+      category: "langues",
+      criterion: "sont langues officielles de la Suisse",
+      targetWords: ["Allemand", "Français", "Italien", "Romanche"],
+      decoyWords: ["Anglais", "Espagnol", "Portugais", "Néerlandais", "Russe", "Polonais", "Suédois", "Grec", "Turc", "Arabe", "Japonais", "Coréen"],
+    },
+    {
+      category: "sports olympiques",
+      criterion: "sont des sports d'hiver",
+      targetWords: ["Ski alpin", "Patinage artistique", "Hockey sur glace", "Bobsleigh"],
+      decoyWords: ["Natation", "Athlétisme", "Judo", "Escrime", "Basketball", "Volleyball", "Tennis", "Gymnastique", "Cyclisme", "Aviron", "Boxe", "Haltérophilie"],
+    },
+    {
+      category: "drapeaux de pays",
+      criterion: "comportent au moins une étoile",
+      targetWords: ["Chine", "Vietnam", "Turquie", "Brésil"],
+      decoyWords: ["France", "Allemagne", "Italie", "Espagne", "Royaume-Uni", "Japon", "Pologne", "Belgique", "Pays-Bas", "Suisse", "Irlande", "Autriche"],
+    },
   ],
 };
 
